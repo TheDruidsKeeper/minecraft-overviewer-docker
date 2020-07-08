@@ -8,6 +8,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout submodules
+      uses: textbook/git-checkout-submodule-action@master
     - uses: docker/build-push-action@v1
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
