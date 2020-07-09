@@ -3,7 +3,7 @@
 
 ![Build](https://github.com/TheDruidsKeeper/minecraft-overviewer-enhancements/workflows/CI/badge.svg)
 
-This is to dockerize the [Minecraft Overviewer](https://github.com/overviewer/Minecraft-Overviewer) project. Why isn't this just part of the original project you ask? Because @CounterPillow [rejected it](https://github.com/overviewer/Minecraft-Overviewer/pull/1805) for not wanting to maintain docker builds ¯\\\_(ツ)\_/¯.
+This is to dockerize the [Minecraft Overviewer](https://github.com/overviewer/Minecraft-Overviewer) project. Why isn't this just part of the original project you ask? Because @CounterPillow [rejected it](https://github.com/overviewer/Minecraft-Overviewer/pull/1805) for not wanting to maintain a dockerfile ¯\\\_(ツ)\_/¯.
 
 
 ## Usage
@@ -35,7 +35,7 @@ outputdir = "/var/minecraft/output"
 
 5. Copy the world you wish to render into the `worlds` directory:
 ```
-rsync -az --progress --delete mineos:/var/games/minecraft/servers/vanilla/world/ /home/michael/minecraft-overviewer/worlds/vanilla
+rsync -az --progress --delete mineos:/var/games/minecraft/servers/vanilla/world/ /var/minecraft-overviewer/worlds/vanilla
 ```
 6. Run the docker image, mounting the directories & config file used above:
 ```
