@@ -17,7 +17,9 @@ jobs:
       run: |
         cd minecraft-overviewer
         git fetch --tags
-        echo "::set-output name=release::$(git describe --tags)"
+        release=$(git describe --tags)
+        echo "Using tag $release"
+        echo "::set-output name=release::$release"
     - uses: docker/build-push-action@v1
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
@@ -27,4 +29,4 @@ jobs:
         tag_with_sha: true
         tags: |
           latest
-          ${{ steps.submodule-tags.release }}
+          ${{ steps.submodule-tags.outputs.release }}
