@@ -1,0 +1,22 @@
+name: Auto-Update
+on:
+  schedule:
+    - cron: '0 0 * * 4'
+  workflow_dispatch:
+jobs:
+  update-submodule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Update submodule to latest release
+        run: |
+          cd Minecraft-Overviewer
+          lastversion() { basename $(curl -fs -o/dev/null -w %{redirect_url} $1/releases/latest); }
+          git checkout tags/$(lastversion https://github.com/overviewer/Minecraft-Overviewer)
+          cd ..
+          git add Minecraft-Overviewer
+          git commit - m "Automatic update to latest release"
+          git push
