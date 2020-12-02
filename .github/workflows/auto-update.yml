@@ -13,12 +13,13 @@ jobs:
           submodules: true
       - name: Update submodule to latest release
         run: |
-          cd minecraft-overviewer
           lastversion() { basename $(curl -fs -o/dev/null -w %{redirect_url} $1/releases/latest); }
           release=$(lastversion https://github.com/overviewer/Minecraft-Overviewer)
+          git config --global user.name 'TheDruidsKeeper'
+          git config --global user.email 'TheDruidsKeeper@users.noreply.github.com'
+          cd minecraft-overviewer
           git fetch --tags
           git checkout --detach $(git rev-list -n 1 tags/$release)
           cd ..
-          git add minecraft-overviewer
-          git commit -m "Automatic update to latest release"
+          git commit -am "Automatic update to latest release"
           git push
