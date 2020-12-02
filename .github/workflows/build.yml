@@ -28,3 +28,9 @@ jobs:
         tag_with_ref: true
         tag_with_sha: true
         tags: latest,${{ steps.submodule-tags.outputs.release }}
+    - uses: meeDamian/sync-readme@v1.0.6
+      with:
+        user: ${{ secrets.DOCKER_USERNAME }}
+        pass: ${{ secrets.DOCKER_PASSWORD }}
+        slug: thedruidskeeper/minecraft-overviewer
+        description: true
