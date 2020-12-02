@@ -15,6 +15,7 @@ jobs:
         run: |
           cd minecraft-overviewer
           lastversion() { basename $(curl -fs -o/dev/null -w %{redirect_url} $1/releases/latest); }
+          git fetch
           git checkout tags/$(lastversion https://github.com/overviewer/Minecraft-Overviewer)
           cd ..
           git add minecraft-overviewer
