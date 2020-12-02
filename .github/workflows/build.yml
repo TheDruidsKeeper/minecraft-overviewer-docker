@@ -1,4 +1,4 @@
-name: CI
+name: Build and Push Docker
 on:
   push:
     branches: [ master ]
@@ -12,6 +12,11 @@ jobs:
       uses: actions/checkout@v2
       with:
         submodules: true
+    - name: Get tags from submodule
+      id: submodule-tags
+      run: |
+        cd minecraft-overviewer
+        echo "::set-output name=release::$(git describe --tags)"
     - uses: docker/build-push-action@v1
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
@@ -19,4 +24,6 @@ jobs:
         repository: thedruidskeeper/minecraft-overviewer
         tag_with_ref: true
         tag_with_sha: true
-        tags: latest
+        tags: |
+          latest
+          ${{ steps.submodule-tags.release }}
