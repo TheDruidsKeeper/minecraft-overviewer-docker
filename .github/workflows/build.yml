@@ -25,8 +25,6 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         repository: thedruidskeeper/minecraft-overviewer
-        tag_with_ref: true
-        tag_with_sha: true
         tags: latest,${{ steps.submodule-tags.outputs.release }}
     - name: Update repo description
       uses: peter-evans/dockerhub-description@v2
