@@ -16,6 +16,7 @@ jobs:
       id: submodule-tags
       run: |
         cd minecraft-overviewer
+        git fetch --tags
         echo "::set-output name=release::$(git describe --tags)"
     - uses: docker/build-push-action@v1
       with:
