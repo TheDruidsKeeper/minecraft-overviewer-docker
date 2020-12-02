@@ -16,7 +16,7 @@ jobs:
           cd minecraft-overviewer
           lastversion() { basename $(curl -fs -o/dev/null -w %{redirect_url} $1/releases/latest); }
           git remote update
-          git checkout --detach tags/$(lastversion https://github.com/overviewer/Minecraft-Overviewer)
+          git checkout --detach $(git rev-list -n 1 tags/$(lastversion https://github.com/overviewer/Minecraft-Overviewer))
           cd ..
           git add minecraft-overviewer
           git commit - m "Automatic update to latest release"
