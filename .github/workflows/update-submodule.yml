@@ -21,5 +21,5 @@ jobs:
           git fetch --tags
           git checkout --detach $(git rev-list -n 1 tags/$release)
           cd ..
-          git commit -am "Automatic update to release $release"
+          git diff-index --quiet HEAD || git commit -am "Automatic update to release $release"
           git push
