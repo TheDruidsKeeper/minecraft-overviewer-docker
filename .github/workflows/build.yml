@@ -33,4 +33,4 @@ jobs:
         user: ${{ secrets.DOCKER_USERNAME }}
         pass: ${{ secrets.DOCKER_PASSWORD }}
         slug: thedruidskeeper/minecraft-overviewer
-        description: true
+        #description: true
