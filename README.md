@@ -1,4 +1,4 @@
-# minecraft-overviewer-enhancements
+# minecraft-overviewer-docker
 > Automated docker images of the Minecraft Overviewer project
 
 ![Update Submodule](https://github.com/TheDruidsKeeper/minecraft-overviewer-enhancements/workflows/Update%20Submodule/badge.svg)
