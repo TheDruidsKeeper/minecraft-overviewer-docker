@@ -1,6 +1,10 @@
 # minecraft-overviewer-docker
 > Automated docker images of the Minecraft Overviewer project
 
+As of [2023-05-09](https://overviewer.org/blog/2023/5/9/the-end/) the Minecraft Overviewer project is no longer officially maintained, rendering this project obsolete. No further updates are planned at this time.
+
+---
+
 ![Update Submodule](https://github.com/TheDruidsKeeper/minecraft-overviewer-enhancements/workflows/Update%20Submodule/badge.svg)
 
 ![Docker Build](https://github.com/TheDruidsKeeper/minecraft-overviewer-enhancements/workflows/Build%20and%20Push%20Docker/badge.svg)
